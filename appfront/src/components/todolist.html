@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    <input v-model="inputValue">
+    <button @click="change">添加计划</button>
+
+    <ul>
+      <li v-for="(item,index) of list " :key="index">{{ item }}</li>
+    </ul>
+  </div>
+</body>
+<script>
+  new Vue({
+          el:'#app',
+          data: {
+              inputValue:'',
+              list:[]
+          },
+          methods:{
+              change:function () {
+                  this.list.push(this.inputValue)
+                  this.inputValue=''
+              }
+          }
+
+
+  })
+</script>
+</html>
